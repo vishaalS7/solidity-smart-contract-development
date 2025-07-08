@@ -1,31 +1,32 @@
-Solidity Smart Contract
+# Simple Storage Contracts Project
 
-Welcome to my Solidity Smart Contracts Portfolio! This repository showcases essential Solidity concepts through practical examples. Whether you're new to blockchain development or looking to sharpen your skills, these examples provide a solid foundation in Ethereum smart contract development.
+This project demonstrates the use of multiple Solidity smart contracts for storing, retrieving, and managing data on the Ethereum blockchain. It includes a `SimpleStorage` contract, a `StorageFactory` to deploy and manage multiple storage instances, and an `Additive` contract to handle basic arithmetic operations.
 
-📝 Introduction
+## 📁 Contracts
 
-Explore the core building blocks of Solidity with these straightforward examples. Each contract demonstrates fundamental concepts, offering a solid foundation for developing smart contracts on the Ethereum blockchain.
+### 1. `SimpleStorage.sol`
+A basic contract that allows users to store and retrieve a `uint256` number.
 
-🚀 Features
+#### Functions:
+- `store(uint256 _number)`: Stores a number.
+- `retrieve() view returns (uint256)`: Returns the currently stored number.
 
-This project covers the following key concepts in Solidity:
+### 2. `StorageFactory.sol`
+This contract allows deployment and management of multiple `SimpleStorage` contract instances.
 
-- State Variables & Data Types: Understand how to declare and use state variables with different data types like uint, string, address, and more.
-- Functions (Store & Retrieve): Learn how to create functions that interact with state variables, allowing you to store and retrieve data on the blockchain.
-- Arrays & Mappings: Explore structured data storage with arrays and mappings, essential tools for managing collections of data in Solidity.
-- Deploying Contracts from Contracts: See how a contract can deploy another contract, demonstrating advanced techniques for contract interaction and modular design.
-- Inheritance, Override, & Virtual: Dive into Solidity’s object-oriented features with inheritance. Understand how to reuse code across contracts and customize functionality with override and virtual keywords.
+#### Functions:
+- `createSimpleStorageContract()`: Deploys a new `SimpleStorage` contract and tracks it.
+- `sfStore(uint256 _index, uint256 _number)`: Stores a number in a specific `SimpleStorage` instance by index.
+- `sfGet(uint256 _index) view returns (uint256)`: Retrieves a number from a specific `SimpleStorage` instance by index.
 
- Deploy and Interact with SimpleStorage
+### 3. `Additive.sol`
+A small utility contract that provides basic addition functionality.
 
-📂 Directory Structure
+#### Functions:
+- `add(uint256 a, uint256 b) pure returns (uint256)`: Returns the sum of two numbers.
 
-solidity-smart-contract-development/
-├── contracts/
-│   ├── SimpleStorage.sol       # A basic Solidity contract to store and retrieve an integer value on the blockchain.
-│   ├── StorageFactory.sol      # A Solidity contract that deploys and manages multiple SimpleStorage contracts.
-│   ├── ContractFactory.sol     # A Solidity contract that deploys SimpleStorage contracts and allows access to their store and retrieve functions.
-│   ├── InheritanceExample.sol  # A Solidity contract that inherits from SimpleStorage and adds 5 to the value whenever store is called.
-│   └── ...
-└── README.md                   # Project documentation
+## 📚 Learning Acknowledgment
 
+This project is part of my personal Solidity learning portfolio, inspired by and developed while following the `Cyfrin Updraft` learning track.
+
+Many thanks to the Cyfrin team for creating such valuable educational content.
