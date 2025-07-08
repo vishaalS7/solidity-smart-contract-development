@@ -1,30 +1,35 @@
 // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
 
-pragma solidity ^0.8.18;
+contract SimpleStorage { 
+    uint public myFavouriteNumber ; 
 
-contract SimpleStorage {
-
-    uint256 myFavNumber; //0
+    // uint256[] public listOfPeople;
 
     struct person {
-        uint256 favNumber;
+        uint favouriteNumber;
         string name;
     }
 
+
     person[] public listOfPeople;
+    // person public vishh = person (7,"vishaal");
+    // person public swe = person ( 8,"swetha");
+    // person public aki = person (21, "akila" );
 
-    mapping (string => uint256) public callByName;
+    mapping ( string => uint256) public nameToFavNumber;
 
-    function store (uint256 _favNum)public virtual  {
-        myFavNumber = _favNum;
+    function store (uint _favNumber) public virtual {
+        myFavouriteNumber = _favNumber;
     }
 
-    function retrive () public view returns (uint256){
-        return myFavNumber;
+    function retrive() public view returns(uint256){
+        return myFavouriteNumber;
     }
 
-    function addPerson(string memory _Name, uint256 _favNumber) public {
-        listOfPeople.push(person (_favNumber, _Name));
-        callByName[_Name] = _favNumber;
+    function addPerson(string memory _name, uint _favNumber) public { 
+        listOfPeople.push(person(_favNumber, _name));
+        nameToFavNumber[_name] = _favNumber;
     }
+
 }
